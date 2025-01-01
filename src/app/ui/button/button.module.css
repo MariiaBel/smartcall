@@ -1,0 +1,39 @@
+.button {
+    --btn-bg: var(--background-invert);
+    --btn-bg-invert: var(--background);
+    padding: 14px 16px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(var(--btn-bg));
+    color: rgb(var(--btn-bg-invert));
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-size: var(--p2);
+    line-height: var(--p2-lh);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(var(--background-neutral));
+}
+
+.button:active {
+    background-color: rgb(var(--btn-bg-invert));
+    border-color: rgb(var(--background-neutral));
+    color: rgb(var(--background-neutral));
+}
+
+.button.--light {
+    --btn-bg: var(--background);
+    --btn-bg-invert: var(--background-invert);
+    border-color: rgb(var(--background-neutral));
+}
+
+.button.--light:hover {
+    color: rgb(var(--btn-bg));
+}
+.button.--light:active {
+    border-color:transparent;
+}

@@ -1,0 +1,109 @@
+
+
+.welcome {
+ display: grid;
+ grid-template-columns: 1fr;
+ gap: 32px;
+}
+
+.hgroup {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  line-height: 1.5em;
+  column-gap: 12px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.img {
+  max-width: 630px;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.btn {
+  justify-self: flex-start;
+}
+
+.stacks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.stack {
+  position: relative;
+  padding: 24px;
+  border: 2px solid rgb(var(--background-invert));
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stackIcon {
+  width: 56px;
+  height: 56px;
+  color: rgb(var(--background-invert));
+  margin-bottom: 32px;
+}
+
+.stackTitle {
+  margin-top: auto;
+}
+
+.stackDesc {
+  position: absolute;
+  bottom: 0;
+  font-size: var(--p3);
+}
+
+@media (min-width: 768px) {
+  .welcome {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content min-content;
+    align-items: flex-start;
+  }
+  
+  .img {
+    display: inline-block;
+    margin-right: initial;
+    grid-row: 1 / -1;
+    grid-column: 2 / -1;
+  }
+
+  .stacks {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .stacks {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .img {
+    max-height: initial;
+  }
+  .btns {
+    gap: 30px;
+  }
+}

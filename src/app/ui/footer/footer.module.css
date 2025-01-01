@@ -1,0 +1,13 @@
+.footer {
+    background-color: rgb(var(--background-invert));
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
+}
+
+
+@media (min-width: 1280px) {
+    .footer {
+        /* padding-top: 24px;
+        padding-bottom: 24px; */
+    }
+}
