@@ -1,13 +1,17 @@
 .footer {
+    --cl-header: var(--cl-p-invert);
     background-color: rgb(var(--background-invert));
-    /* padding-top: 20px;
-    padding-bottom: 20px; */
+    color: rgb(var(--cl-p-invert));
 }
 
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 
 @media (min-width: 1280px) {
     .footer {
-        /* padding-top: 24px;
-        padding-bottom: 24px; */
     }
 }

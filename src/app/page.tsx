@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import Image from "next/image";
 import styles from "./page.module.css";
@@ -7,12 +7,10 @@ import Icon from "./ui/icon/icon";
 import { data } from "./constants/homepage";
 
 export default function Home() {
-  function handleContactMe(){
-    console.log('click contact')
-  }
+
   return (
       <article>
-        <h1 className='text-hidden'>Фронтенд разработчик и веб ментор</h1>
+        <h1 className='text-hidden'>Фронтенд разработчик, html верстальщик и веб ментор</h1>
         <section className={styles.welcome + ' contain'}>
           <Image
             className={styles.img + ' img'}
@@ -59,8 +57,59 @@ export default function Home() {
           </ul>
         </section>
 
-        <section className={styles.experience + ' contain contain--invert'}>
+        <section className={'contain contain--invert'}>
           <h2 className={styles.header + ' h1'}>Профессиональный <span className="--extraBold">опыт</span></h2>
+          <ul className={styles.experience}>
+            {data.experience.map((item, key)=> (
+              <li key={key} className={styles.experienceItem}>
+                <h3 className=" h2 --bold">{item.title}</h3>
+                <p className='--bold'>{item.date}</p>
+                <p className={styles.experienceDesc}>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className={'contain'}>
+          <h2 className={styles.header + ' h1 --extraBold'}>Рекомендации</h2>
+          <ul className={styles.recommendations}>
+            {
+              data.recommendations.map((item, key) => (
+                <li key={key} className={styles.recommendation}>
+                  <a href={item.docLink} target="_blank" className={styles.recommendationLink}>
+                    <Icon className={styles.recommendationIcon} width={56} height={56} id={item.iconId} />
+                    <p className={styles.recommendationDesc}>{item.desc}</p>
+                    <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
+                    <p className={styles.recommendationPosition + ' --bold'}>{item.position}</p>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section className={'contain'}>
+          <h2 className={styles.header + ' h1 --extraBold'}>Отзывы</h2>
+          <ul className={styles.recommendations}>
+            {
+              data.reviews.map((item, key) => (
+                <li key={key} className={[styles.recommendationLink, styles.recommendation].join(' ')}>
+                    <Icon className={styles.recommendationQuote} width={18} height={18} id='quote' />
+                    <p className={styles.recommendationDesc}>{item.desc}</p>
+                    <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
+                    <p className={styles.recommendationPosition + ' --bold'}>{item.position}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section className={'contain'}>
+            <p className={`h1 ${styles.header} `}><span className="--extraBold">Связаться</span> со мной можно через <span className="--extraBold">телеграм</span> <a href="https://t.me/MariiaBel" target="_blank" className="--outside --extraBold">@MariiaBel</a>.</p>
+          <Button className={styles.btn} href="https://t.me/MariiaBel" external>
+            Написать 
+            <Icon id="telegram" width={20} height={20} className={styles.icon} aria-label="contact with frontend developer" />
+          </Button>
         </section>
       </article>
   );
