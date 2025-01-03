@@ -3,8 +3,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Button from "./ui/button/button";
-import Icon from "./ui/icon/icon";
 import { data } from "./constants/homepage";
+import SvgIcon from './ui/svgIcon/svgIcon';
 
 export default function Home() {
 
@@ -32,11 +32,11 @@ export default function Home() {
           <div className={styles.btns}>
             <Button className={styles.btn} href="https://t.me/MariiaBel" external>
               Написать 
-              <Icon id="telegram" width={20} height={20} className={styles.icon} aria-label="contact with frontend developer" />
+              <SvgIcon id="telegram" width={20} height={20} className={styles.icon} aria-label="contact with frontend developer" />
             </Button>
             <Button className={styles.btn} modificator="--light" href="https://github.com/mariiabel" external>
               GitHub
-              <Icon id="github" width={20} height={20} className={styles.icon} aria-label="contact with frontend developer" />
+              <SvgIcon id="github" width={20} height={20} className={styles.icon} aria-label="contact with frontend developer" />
             </Button>
           </div>
         </section>
@@ -48,7 +48,7 @@ export default function Home() {
             {
               data.stack.map((item, key) => (
                 <li key={key} className={styles.stack}>
-                  <Icon className={styles.stackIcon} width={56} height={56} id={item.iconId} />
+                  <SvgIcon className={styles.stackIcon} width={56} height={56} id={item.iconId} />
                   <h3 className={styles.stackTitle + " h2 --bold"}>{item.name}</h3>
                   <p className={styles.stackDesc}>{item.description}</p>
                 </li>
@@ -77,7 +77,7 @@ export default function Home() {
               data.recommendations.map((item, key) => (
                 <li key={key} className={styles.recommendation}>
                   <a href={item.docLink} target="_blank" className={styles.recommendationLink}>
-                    <Icon className={styles.recommendationIcon} width={56} height={56} id={item.iconId} />
+                    <SvgIcon className={styles.recommendationIcon} width={56} height={56} id={item.iconId} />
                     <p className={styles.recommendationDesc}>{item.desc}</p>
                     <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
                     <p className={styles.recommendationPosition + ' --bold'}>{item.position}</p>
@@ -94,7 +94,7 @@ export default function Home() {
             {
               data.reviews.map((item, key) => (
                 <li key={key} className={[styles.recommendationLink, styles.recommendation].join(' ')}>
-                    <Icon className={styles.recommendationQuote} width={18} height={18} id='quote' />
+                    <SvgIcon className={styles.recommendationQuote} width={18} height={18} id='quote' />
                     <p className={styles.recommendationDesc}>{item.desc}</p>
                     <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
                     <p className={styles.recommendationPosition + ' --bold'}>{item.position}</p>
@@ -108,7 +108,7 @@ export default function Home() {
             <p className={`h1 ${styles.header} `}><span className="--extraBold">Связаться</span> со мной можно через <span className="--extraBold">телеграм</span> <a href="https://t.me/MariiaBel" target="_blank" className="--outside --extraBold">@MariiaBel</a>.</p>
           <Button className={styles.btn} href="https://t.me/MariiaBel" external>
             Написать 
-            <Icon id="telegram" width={20} height={20} className={styles.icon} aria-label="contact with frontend developer" />
+            <SvgIcon id="telegram" width={20} height={20} className={styles.icon} aria-label="contact with frontend developer" />
           </Button>
         </section>
       </article>

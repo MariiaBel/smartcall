@@ -5,7 +5,7 @@ type TIconProps = {
     height: number;
 }
 
-export default  function Icon({id, className, width, height}:TIconProps) {
+export default function SvgIcon({id, className, width, height}:TIconProps){
     return (
         <svg className={className} width={width} height={height}>
             <use xlinkHref={`/sprite.svg#${id}`}></use>

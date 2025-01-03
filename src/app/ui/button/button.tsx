@@ -14,7 +14,7 @@ type TButtonProp = {
 }
 
 export default function Button({children, href, external= false, onClick, className, modificator = ''}: TButtonProp) {
-    const btnClass = useMemo(() => [className,styles.button, styles[modificator]].join(' '), [])
+    const btnClass = useMemo(() => [className,styles.button, styles[modificator]].join(' '), [className, modificator])
 
     if (href && external ) return (
         <a href={href} target="_blank" className={btnClass}>{children}</a>
