@@ -3,7 +3,7 @@ import "./globals.css";
 import { sora } from './ui/fonts';
 import Header from "./ui/header/header";
 import Footer from "./ui/footer/footer";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,6 +23,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer></Footer>
+
+        <SpeedInsights/>
       </body>
     </html>
   );
