@@ -4,6 +4,7 @@ import { sora } from './ui/fonts';
 import Header from "./ui/header/header";
 import Footer from "./ui/footer/footer";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Footer></Footer>
 
         <SpeedInsights/>
+        <Analytics/>
       </body>
     </html>
   );
