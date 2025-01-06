@@ -67,7 +67,7 @@ export const data = {
             position: 'компания'
         },
         {
-            docLink: '/docs/recommendation-from-webvork.pdf',
+            docLink: '/docs/webwork.png',
             iconId: 'webwork',
             desc: 'Мария обладает лидерскими качествами. Она запустила еженедельные технические встречи. Мария — трудолюбивый и надежный сотрудник',
             name: 'Роман Аблаев',
