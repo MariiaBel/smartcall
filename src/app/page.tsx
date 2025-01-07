@@ -38,6 +38,10 @@ export default function Home() {
               GitHub
               <SvgIcon id="github" width={20} height={20} className={styles.icon} aria-label="contact with frontend developer" />
             </Button>
+            <Button className={styles.btn} href="https://docs.google.com/document/d/1TJjPASplxayaZkBXZ2a5MfP4-V-_IUm_52GSav14f3M/edit?usp=sharing" external>
+                Резюме 
+                <SvgIcon id="download" width={20} height={20} />
+            </Button>
           </div>
         </section>
 
