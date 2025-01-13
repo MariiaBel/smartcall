@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 import Button from "./ui/button/button";
 import { data } from "./constants/homepage";
 import SvgIcon from './ui/svgIcon/svgIcon';
+import Popover from "./ui/popover/popover";
 
 export default function Home() {
 
@@ -80,12 +81,21 @@ export default function Home() {
             {
               data.recommendations.map((item, key) => (
                 <li key={key} className={styles.recommendation}>
-                  <a href={item.docLink} target="_blank" className={styles.recommendationLink}>
-                    <SvgIcon className={styles.recommendationIcon} width={56} height={56} id={item.iconId} />
-                    <p className={styles.recommendationDesc}>{item.desc}</p>
-                    <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
-                    <p className={styles.recommendationPosition + ' --bold'}>{item.position}</p>
-                  </a>
+                  <Popover 
+                    id={key} 
+                    dialogContent={<Image
+                      className={`img`}
+                      src={item.docLink}
+                      alt={item.name}
+                      width={630}
+                      height={630}
+                    />} 
+                    
+                    btnContent={(<div className={styles.recommendationContent} ><SvgIcon className={styles.recommendationIcon} width={56} height={56} id={item.iconId} />
+                      <p className={styles.recommendationDesc}>{item.desc}</p>
+                      <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
+                      <p className={styles.recommendationPosition + ' --bold'}>{item.position}</p></div>)}
+                  />
                 </li>
               ))
             }
@@ -97,7 +107,7 @@ export default function Home() {
           <ul className={styles.recommendations}>
             {
               data.reviews.map((item, key) => (
-                <li key={key} className={[styles.recommendationLink, styles.recommendation].join(' ')}>
+                <li key={key} className={[styles.recommendationContent, styles.recommendation].join(' ')}>
                     <SvgIcon className={styles.recommendationQuote} width={18} height={18} id='quote' />
                     <p className={styles.recommendationDesc}>{item.desc}</p>
                     <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
