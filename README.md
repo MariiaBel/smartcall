@@ -1,4 +1,4 @@
-# SMARTCALL ☼ - проект для поиска ментора
+# SMARTCALL ☼ - проект портфолио
 
 Разработчик [@MariiaBel](https://t.me/MariiaBel) 
 
