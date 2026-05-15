@@ -17,7 +17,7 @@ export default function Button({children, href, external= false, onClick, classN
     const btnClass = useMemo(() => [className,styles.button, styles[modificator]].join(' '), [className, modificator])
 
     if (href && external ) return (
-        <a href={href} target="_blank" className={btnClass}>{children}</a>
+        <a href={href} target="_blank" rel="noopener noreferrer" className={btnClass}>{children}</a>
     ) 
 
     if (href ) return (

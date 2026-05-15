@@ -7,7 +7,7 @@ export default function Footer() {
         <footer className={styles.footer}>
             <div className={styles.content + ' contain' }>
                 <Logo />
-                <p>@2025 SmartCall <br />разработано <a href="https://t.me/MariiaBel" target="_blank">@MariiaBel</a></p>
+                <p>© 2025 SmartCall <br />разработано <a href="https://t.me/MariiaBel" target="_blank" rel="noopener noreferrer">@MariiaBel</a></p>
             </div>
         </footer>
     )
