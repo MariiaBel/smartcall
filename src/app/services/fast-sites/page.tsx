@@ -17,7 +17,7 @@ export default function FastSitesPage() {
             {/* Hero Section */}
             <section className=" contain grid grid-cols-1 md:grid-cols-2">
                 <div className=''>
-                    <h1 className="h1 mb-6 ">
+                    <h1 className="h1 mb-10 ">
                         Создаю быстрые сайты,<br />
                         <span className="--extraBold">которые приносят клиентов</span>
                     </h1>
@@ -90,7 +90,7 @@ export default function FastSitesPage() {
 
             {/* Comparison: Experienced vs Agency vs Junior */}
             <section className="contain">
-                <h2 className="h1 mb-6">
+                <h2 className="h1 mb-10">
                     Почему выгоднее нанять <span className="--extraBold">профессионала с опытом</span>, а не компанию или новичка
                 </h2>
 
