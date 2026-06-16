@@ -142,14 +142,14 @@ export default function Home() {
           <a href="https://t.me/MariiaBel" target="_blank" rel="noopener noreferrer" className="--outside --extraBold">@MariiaBel</a>.
         </h2>
         <ContactButton />
-
-        {/* Добавьте эту ссылку */}
-        <div className="mt-8 text-center">
-          <Link href="/services/fast-sites" className="text-blue-600 hover:text-blue-700 underline text-lg">
-            → Узнать о разработке сайтов под ключ
-          </Link>
-        </div>
       </section>
+
+
+      <div className="contain text-center  ">
+        <Link href="/services/fast-sites" className="--extraBold" style={{ color: 'rgb(55, 25, 25)' }}>
+          → Узнать о разработке сайтов под ключ
+        </Link>
+      </div>
     </article>
   );
 }
