@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630">
+  <!-- Фоновый круг -->
+  <circle cx="315" cy="315" r="280" fill="#230F0F"/>
+  
+  <!-- Внутренний круг -->
+  <circle cx="315" cy="315" r="250" fill="#371919"/>
+  
+  <!-- Ракета/скорость - основная идея -->
+  <!-- Корпус ракеты -->
+  <path d="M315 120L370 250L380 280L315 280L250 280L260 250L315 120Z" fill="white"/>
+  
+  <!-- Нос ракеты -->
+  <path d="M315 80L340 150L290 150L315 80Z" fill="white"/>
+  
+  <!-- Крылья ракеты -->
+  <path d="M250 280L210 330L260 290L250 280Z" fill="white"/>
+  <path d="M380 280L420 330L370 290L380 280Z" fill="white"/>
+  
+  <!-- Иллюминатор -->
+  <circle cx="315" cy="220" r="20" fill="#230F0F"/>
+  <circle cx="315" cy="220" r="15" fill="#371919"/>
+  <circle cx="312" cy="217" r="5" fill="white"/>
+  
+  <!-- Сопло ракеты -->
+  <path d="M295 280L285 310L315 305L345 310L335 280L315 285L295 280Z" fill="white"/>
+  
+  <!-- Пламя -->
+  <path d="M285 310L275 360L295 330L305 370L315 340L325 370L335 330L355 360L345 310Z" fill="white" opacity="0.8"/>
+  <path d="M290 310L285 345L300 325L310 355L315 335L320 355L335 325L345 345L340 310Z" fill="white" opacity="0.6"/>
+  
+  <!-- Линии скорости (слева) -->
+  <line x1="180" y1="200" x2="230" y2="215" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="170" y1="240" x2="235" y2="245" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="175" y1="280" x2="240" y2="275" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Линии скорости (справа) -->
+  <line x1="450" y1="200" x2="400" y2="215" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="460" y1="240" x2="395" y2="245" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="455" y1="280" x2="390" y2="275" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Звездочки для динамики -->
+  <circle cx="200" cy="170" r="3" fill="white"/>
+  <circle cx="430" cy="170" r="3" fill="white"/>
+  <circle cx="160" cy="320" r="2" fill="white"/>
+  <circle cx="470" cy="320" r="2" fill="white"/>
+  
+  <!-- Монитор/код - элемент разработки -->
+  <!-- Монитор слева внизу -->
+  <rect x="200" y="380" width="80" height="60" rx="5" fill="white"/>
+  <rect x="205" y="385" width="70" height="45" rx="3" fill="#371919"/>
+  <rect x="235" y="385" width="10" height="2" fill="white"/>
+  <rect x="235" y="392" width="20" height="2" fill="white"/>
+  <rect x="235" y="399" width="15" height="2" fill="white"/>
+  <rect x="235" y="406" width="25" height="2" fill="white"/>
+  <!-- Подставка монитора -->
+  <rect x="230" y="440" width="20" height="5" fill="white"/>
+  <rect x="220" y="445" width="40" height="3" fill="white"/>
+  
+  <!-- Мобильное устройство справа внизу -->
+  <rect x="350" y="380" width="45" height="70" rx="5" fill="white"/>
+  <rect x="355" y="385" width="35" height="55" rx="3" fill="#371919"/>
+  <rect x="370" y="405" width="5" height="8" rx="2" fill="white"/>
+  <rect x="370" y="418" width="8" height="2" fill="white"/>
+  <rect x="370" y="425" width="6" height="2" fill="white"/>
+  <!-- Кнопка -->
+  <circle cx="372" cy="448" r="3" fill="white"/>
+  
+  <!-- Символы шестеренки/настройки -->
+  <g transform="translate(315, 490)">
+    <circle cx="0" cy="0" r="15" fill="none" stroke="white" stroke-width="3"/>
+    <circle cx="0" cy="0" r="6" fill="white"/>
+    <!-- Зубцы -->
+    <rect x="-3" y="-20" width="6" height="8" rx="2" fill="white"/>
+    <rect x="-3" y="12" width="6" height="8" rx="2" fill="white"/>
+    <rect x="-20" y="-3" width="8" height="6" rx="2" fill="white"/>
+    <rect x="12" y="-3" width="8" height="6" rx="2" fill="white"/>
+  </g>
+  
+  <!-- Декоративные точки -->
+  <circle cx="280" cy="160" r="2" fill="white" opacity="0.5"/>
+  <circle cx="350" cy="155" r="2" fill="white" opacity="0.5"/>
+  <circle cx="315" cy="145" r="1.5" fill="white" opacity="0.5"/>
+  
+  <!-- Легкий градиентный эффект для объема -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  
+  <circle cx="315" cy="315" r="280" fill="url(#glow)"/>
+</svg>

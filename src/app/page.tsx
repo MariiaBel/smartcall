@@ -5,6 +5,8 @@ import { data } from "./constants/homepage";
 import { SITE_URL } from "./constants/site";
 import SvgIcon from './ui/svgIcon/svgIcon';
 import Popover from "./ui/popover/popover";
+import Link from "next/link";
+import ContactButton from "./ui/button/contact-button";
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -46,11 +48,8 @@ export default function Home() {
         </hgroup>
         <p>Занимаюсь фронтенд-разработкой с 2012 года. На профессиональном уровне владею JavaScript, HTML и CSS. Создаю веб-ресурсы на React, Vue и Angular. Могу научить писать хорошо поддерживаемый код и помочь с вашей рабочей задачей.</p>
         <div className={styles.btns}>
-          <Button className={styles.btn} href="https://t.me/MariiaBel" external>
-            Написать в Telegram
-            <SvgIcon id="telegram" width={20} height={20} className={styles.icon} />
-          </Button>
-          <Button className={styles.btn} modificator="--light" href="https://github.com/mariiabel" external>
+          <ContactButton />
+          <Button className={styles.btn} mode="--light" href="https://github.com/mariiabel" external>
             GitHub
             <SvgIcon id="github" width={20} height={20} className={styles.icon} />
           </Button>
@@ -82,7 +81,7 @@ export default function Home() {
         <ul className={styles.experience}>
           {data.experience.map((item) => (
             <li key={`${item.title}-${item.date}`} className={styles.experienceItem}>
-              <h3 className=" h2 --bold">{item.title}</h3>
+              <h3 className=" h2 --bold tracking-[0.05em]">{item.title}</h3>
               <p className='--bold'>{item.date}</p>
               <p className={styles.experienceDesc}>{item.description}</p>
             </li>
@@ -136,14 +135,20 @@ export default function Home() {
         </ul>
       </section>
 
+
       <section className={'contain'} aria-labelledby="contact-heading">
-        <h2 id="contact-heading" className={`h1 ${styles.header}`}><span className="--extraBold">Связаться</span> со мной можно через <span className="--extraBold">Telegram</span>{' '}
+        <h2 id="contact-heading" className={`h1 ${styles.header}`}>
+          <span className="--extraBold">Связаться</span> со мной можно через <span className="--extraBold">Telegram</span>{' '}
           <a href="https://t.me/MariiaBel" target="_blank" rel="noopener noreferrer" className="--outside --extraBold">@MariiaBel</a>.
         </h2>
-        <Button className={styles.btn} href="https://t.me/MariiaBel" external>
-          Написать в Telegram
-          <SvgIcon id="telegram" width={20} height={20} className={styles.icon} />
-        </Button>
+        <ContactButton />
+
+        {/* Добавьте эту ссылку */}
+        <div className="mt-8 text-center">
+          <Link href="/services/fast-sites" className="text-blue-600 hover:text-blue-700 underline text-lg">
+            → Узнать о разработке сайтов под ключ
+          </Link>
+        </div>
       </section>
     </article>
   );

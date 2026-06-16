@@ -10,7 +10,6 @@
     color: rgb(var(--btn-bg-invert));
     border: 2px solid transparent;
     border-radius: 4px;
-    font-size: var(--p2);
     line-height: var(--p2-lh);
     cursor: pointer;
 }
@@ -35,5 +34,20 @@
     color: rgb(var(--btn-bg));
 }
 .button.--light:active {
+    border-color:transparent;
+}
+
+.button.--link {
+    --btn-bg: var(--background);
+    --btn-bg-invert: var(--background-invert);
+    border-color:transparent;
+    
+    padding: 8px 10px;
+}
+
+.button.--link:hover {
+    color: rgb(var(--btn-bg));
+}
+.button.--link:active {
     border-color:transparent;
 }
