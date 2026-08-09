@@ -10,7 +10,7 @@ export default function Header() {
             <Logo />
 
             <Button className={'text-sm'} mode="--link" href="/services/fast-sites">
-                Разработка сайта
+                Сайт + AI-агент
             </Button>
         </header >
     )

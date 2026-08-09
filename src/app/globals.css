@@ -110,7 +110,7 @@ li {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center;
+  /* object-position: center; */
   color: rgb(var(--background-invert));
 }
 

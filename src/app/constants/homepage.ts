@@ -1,3 +1,76 @@
+import { SITE_URL } from './site';
+
+export const hiddenTitle =
+    'Мария — фронтенд-разработчик, HTML-верстальщик и веб-ментор';
+
+export const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Мария',
+    jobTitle: 'Фронтенд-разработчик и ментор',
+    url: SITE_URL,
+    knowsAbout: ['JavaScript', 'HTML', 'CSS', 'React', 'Vue', 'Angular', 'вёрстка'],
+    sameAs: ['https://github.com/mariiabel', 'https://t.me/MariiaBel'],
+};
+
+export const welcomeSection = {
+    ariaLabel: 'О себе',
+    imageAlt: 'Иллюстрация: разработчик пишет код за компьютером',
+    greeting: 'Привет ☀',
+    nameIntro: 'Меня зовут',
+    nameBold: 'Мария.',
+    roleIntro: 'Я практикующий',
+    roleBold: 'фронтенд',
+    titleDeveloper: 'разработчик',
+    titleAnd: 'и',
+    titleMentor: 'ментор',
+    description:
+        'Занимаюсь фронтенд-разработкой с 2012 года. На профессиональном уровне владею JavaScript, HTML и CSS. Создаю веб-ресурсы на React, Vue и Angular. Могу научить писать хорошо поддерживаемый код и помочь с вашей рабочей задачей.',
+    buttons: {
+        github: {
+            label: 'GitHub',
+            href: 'https://github.com/mariiabel',
+        },
+        resume: {
+            label: 'Резюме',
+            href: 'https://docs.google.com/document/d/1TJjPASplxayaZkBXZ2a5MfP4-V-_IUm_52GSav14f3M/edit?usp=sharing',
+        },
+    },
+};
+
+export const skillsSection = {
+    title: 'Стек',
+    titleBold: 'технологий',
+};
+
+export const experienceSection = {
+    title: 'Профессиональный',
+    titleBold: 'опыт',
+};
+
+export const recommendationsSection = {
+    title: 'Рекомендации',
+    openLabel: (name: string) => `Открыть рекомендацию: ${name}`,
+    imageAlt: (name: string) => `Рекомендательное письмо: ${name}`,
+};
+
+export const reviewsSection = {
+    title: 'Отзывы',
+};
+
+export const contactSection = {
+    titleBold1: 'Связаться',
+    titleMiddle: 'со мной можно через',
+    titleBold2: 'Telegram',
+    telegramHandle: '@MariiaBel',
+    telegramHref: 'https://t.me/MariiaBel',
+};
+
+export const fastSitesLink = {
+    text: '→ Сайт + AI-агент для автоматизации бизнеса',
+    href: '/services/fast-sites',
+};
+
 export const data = {
     stack: [
         {
@@ -35,33 +108,39 @@ export const data = {
         {
             title: 'Руководитель фронтенд направления',
             date: 'Апрель 2025 - до н.д.',
-            description: 'Развитие команды фронтенд-разработки, формирование процессов и внедрение инструментов, направленных на стандартизацию работы команды.'
+            description:
+                'Развитие команды фронтенд-разработки, формирование процессов и внедрение инструментов, направленных на стандартизацию работы команды.',
         },
         {
             title: 'Фронтенд-разработчик',
             date: 'Август 2023 - Апрель 2025',
-            description: 'Работаю как ментор. Помогаю решать рабочие задачи, настраиваем личное позиционирование и устраиваемся на первую работу, помогаю с учебой и освоением нового материала. Запустила несколько проектов: baires.bike (WordPress + WooCommerce), MGU startup (JavaScript), SmartCall (Next.js).'
+            description:
+                'Работаю как ментор. Помогаю решать рабочие задачи, настраиваем личное позиционирование и устраиваемся на первую работу, помогаю с учебой и освоением нового материала. Запустила несколько проектов: baires.bike (WordPress + WooCommerce), MGU startup (JavaScript), SmartCall (Next.js).',
         },
         {
             title: 'Старший фронтенд-разработчик',
             date: 'Июнь 2022 – Июль 2023',
-            description: 'Работала в интеграционной команде по запуску новых игровых продуктов. Проекты:  polestarcasino.com (Angular, TypeScript), extravegas.com (Angular, TypeScript)'
+            description:
+                'Работала в интеграционной команде по запуску новых игровых продуктов. Проекты:  polestarcasino.com (Angular, TypeScript), extravegas.com (Angular, TypeScript)',
         },
         {
             title: 'Старший веб-верстальщик',
             date: 'Март 2021 – Июнь 2022',
-            description: 'Как старший верстальщик в компании Webvork, помогала коллегам по команде и создала более 7 лендингов: neologistics.it, it8.hepasanol.com, it13.prostatixultra.com, de3.blackpearloriginal.com, it2.blackpearloriginal.com, it3.cystinorm.com и т. д. (HTML, CSS, JS). Запустила первую версию конструктора лендингов (Vue).'
+            description:
+                'Как старший верстальщик в компании Webvork, помогала коллегам по команде и создала более 7 лендингов: neologistics.it, it8.hepasanol.com, it13.prostatixultra.com, de3.blackpearloriginal.com, it2.blackpearloriginal.com, it3.cystinorm.com и т. д. (HTML, CSS, JS). Запустила первую версию конструктора лендингов (Vue).',
         },
         {
             title: 'Наставник веб-верстальщика',
             date: 'Март 2015 – 2020',
-            description: 'Являлась наставником базового и продвинутого курса HTML Academy по вёрстке. Помогла более 40 студентам завершить курс и получить сертификаты.'
+            description:
+                'Являлась наставником базового и продвинутого курса HTML Academy по вёрстке. Помогла более 40 студентам завершить курс и получить сертификаты.',
         },
         {
             title: 'Веб-разработчик',
             date: 'Ноябрь 2012 – Ноябрь 2019',
-            description: 'Занималась поддержкой основного сайта компании Veeam Software на 14 языках, поддержкой сайта блога на Drupal, версткой компонентов и внедрением нового функционала.'
-        }
+            description:
+                'Занималась поддержкой основного сайта компании Veeam Software на 14 языках, поддержкой сайта блога на Drupal, версткой компонентов и внедрением нового функционала.',
+        },
     ],
     recommendations: [
         {
@@ -69,45 +148,45 @@ export const data = {
             iconId: 'veeamSoftware',
             desc: 'Благодаря вашему высокому профессионализму, самоотдаче и желанию быть лучшим в своем деле, мы уверены в блестящем будущем Veeam Software',
             name: 'VeeamSoftware',
-            position: 'компания'
+            position: 'компания',
         },
         {
             docLink: '/docs/webwork.png',
             iconId: 'webwork',
             desc: 'Мария обладает лидерскими качествами. Она запустила еженедельные технические встречи. Мария — трудолюбивый и надежный сотрудник',
             name: 'Роман Аблаев',
-            position: 'продуктовый менеджер, Webvork'
+            position: 'продуктовый менеджер, Webvork',
         },
         {
             docLink: '/docs/BrainRocket.jpg',
             iconId: 'brainRocket',
             desc: 'На протяжении всей работы Мария демонстрировала ответственное отношение к работе и высокий профессионализм. Мария отличный разработчик и ментор.',
             name: 'BrainRocket',
-            position: 'компания'
+            position: 'компания',
         },
         {
             docLink: '/docs/RS.png',
             iconId: 'rs',
             desc: 'В обязанности Марии, как руководителя фронтенд-направления, входят: распределение задач, управление проектами, развитие команды, разработка и внедрение процессов, онбординг специалистов и инженерные улучшения.',
             name: 'BrainRocket',
-            position: 'компания'
+            position: 'компания',
         },
     ],
     reviews: [
         {
             desc: 'Привет еще раз, ты была права, проблема была в инстансах, я запровайдила этот сервис в куче мест, а надо чтобы был синглтон, запровайдила только в аппмодуле и заработало. Спасибо за помощь!',
             name: 'Инга',
-            position: 'фронтенд-разработчик'
+            position: 'фронтенд-разработчик',
         },
         {
             desc: 'Маша, привет, походу мне нужна будет ещё твоя помощь уже на этих выходных на майских. У меня проблемы с центрированием элементов. Сможешь мне два часика времени уделить на ближайших выходных в любое удобное для тебя время',
             name: 'Александр',
-            position: 'фронтенд-разработчик'
+            position: 'фронтенд-разработчик',
         },
         {
             desc: 'Доброе утро) я защитилась, спасибо тебе огромное за помощь! А ты ведёшь адаптивную вёрстку, очень хотелось бы к тебе попасть, если ты не против)))',
             name: 'Ольга',
-            position: 'начинающий фронтенд-разработчик'
+            position: 'начинающий фронтенд-разработчик',
         },
-    ]
-}
+    ],
+};
