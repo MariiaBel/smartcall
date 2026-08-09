@@ -1,6 +1,9 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 import Button from "./ui/button/button";
+import SvgIcon from "./ui/svgIcon/svgIcon";
+import Popover from "./ui/popover/popover";
+import ContactButton from "./ui/button/contact-button";
 import {
     contactSection,
     data,
@@ -13,173 +16,300 @@ import {
     skillsSection,
     welcomeSection,
 } from "./constants/homepage";
-import SvgIcon from './ui/svgIcon/svgIcon';
-import Popover from "./ui/popover/popover";
-import Link from "next/link";
-import ContactButton from "./ui/button/contact-button";
 
 export default function Home() {
     return (
         <article>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(personJsonLd),
+                }}
             />
-            <h1 className="text-hidden">{hiddenTitle}</h1>
-            <section className={styles.welcome + ' contain'} aria-label={welcomeSection.ariaLabel}>
+
+            <h1 className="sr-only">{hiddenTitle}</h1>
+
+            {/* ============================================
+            🧙‍♀️ WELCOME — Hero
+            ============================================ */}
+            <section
+                className="contain grid grid-cols-1 gap-8 md:grid-cols-2 md:grid-rows-[min-content_min-content_min-content] md:items-start"
+                aria-label={welcomeSection.ariaLabel}
+            >
                 <Image
-                    className={styles.img + ' img'}
+                    className="mx-auto max-h-[400px] w-full max-w-[630px] object-contain md:col-start-2 md:row-span-3 md:mx-0"
                     src="/girl-coding.svg"
                     alt={welcomeSection.imageAlt}
                     width={630}
                     height={630}
                     priority
                 />
-                <hgroup className={`h1 ${styles.hgroup}`}>
-                    <span>{welcomeSection.greeting}</span>
-                    <span>
-                        {welcomeSection.nameIntro}{' '}
-                        <span className="--extraBold">{welcomeSection.nameBold}</span>
+
+                <hgroup className="md:col-start-1 md:row-start-1">
+                    {/* Приветствие — лёгкое, как утренний свет */}
+                    <span className="block text-sm font-light uppercase tracking-[0.2em] text-[rgb(var(--cl-p))]">
+                        {welcomeSection.greeting}
                     </span>
-                    <span>
-                        {welcomeSection.roleIntro}{' '}
-                        <span className="--extraBold">{welcomeSection.roleBold}</span>
-                    </span>
-                    <h2>
-                        <span className="--outside --extraBold">{welcomeSection.titleDeveloper}</span>
-                        &nbsp; {welcomeSection.titleAnd} &nbsp;
-                        <span className="--outside --extraBold">{welcomeSection.titleMentor}</span>
+
+                    {/* Основной заголовок — строгий, но нежный */}
+                    <h2 className="mt-2 text-3xl font-light leading-[1.2] tracking-wide text-[rgb(var(--cl-header))] sm:text-4xl md:text-5xl">
+                        {welcomeSection.title}
                     </h2>
+
+                    {/* Подзаголовок — мягкий, уточняющий */}
+                    <p className="mt-3 max-w-2xl text-base font-light leading-relaxed text-[rgb(var(--cl-p))] md:text-lg">
+                        {welcomeSection.subtitle}
+                    </p>
                 </hgroup>
-                <p>{welcomeSection.description}</p>
-                <div className={styles.btns}>
+
+                <div className="md:col-start-1">
+                    {welcomeSection.paragraphs.map((paragraph) => (
+                        <p
+                            key={paragraph}
+                            className="mb-3 last:mb-0"
+                            dangerouslySetInnerHTML={{ __html: paragraph }}
+                        />
+                    ))}
+                </div>
+
+                <div className="flex flex-wrap items-center justify-start gap-6 md:col-start-1">
                     <ContactButton />
                     <Button
-                        className={styles.btn}
                         mode="--light"
                         href={welcomeSection.buttons.github.href}
                         external
+                        className="inline-flex items-center gap-2"
                     >
                         {welcomeSection.buttons.github.label}
-                        <SvgIcon id="github" width={20} height={20} className={styles.icon} />
+                        <SvgIcon id="github" width={20} height={20} />
                     </Button>
                     <Button
-                        className={styles.btn}
                         href={welcomeSection.buttons.resume.href}
                         external
+                        className="inline-flex items-center gap-2"
                     >
                         {welcomeSection.buttons.resume.label}
-                        <SvgIcon id="download" width={20} height={20} className={styles.icon} />
+                        <SvgIcon id="download" width={20} height={20} />
                     </Button>
                 </div>
             </section>
 
-
-            <section className={styles.skills + ' contain'} aria-labelledby="skills-heading">
-                <h2 id="skills-heading" className={styles.header + ' h1'}>
-                    {skillsSection.title}{' '}
-                    <span className="--extraBold">{skillsSection.titleBold}</span>
+            {/* ============================================
+            🎨 SKILLS — Волшебная палитра
+            ============================================ */}
+            <section className="contain" aria-labelledby="skills-heading">
+                <h2
+                    id="skills-heading"
+                    className="mb-10 text-h1 font-medium text-[rgb(var(--cl-header))]"
+                >
+                    {skillsSection.title}{" "}
+                    <span className="font-extrabold">
+                        {skillsSection.titleBold}
+                    </span>
                 </h2>
-                <ul className={styles.stacks}>
-                    {
-                        data.stack.map((item) => (
-                            <li key={item.iconId} className={styles.stack}>
-                                <SvgIcon className={styles.stackIcon} width={56} height={56} id={item.iconId} />
-                                <h3 className={styles.stackTitle + " h2 --bold"}>{item.name}</h3>
-                                <p className={styles.stackDesc}>{item.description}</p>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
 
-            <section className={'contain contain--invert'} aria-labelledby="experience-heading">
-                <h2 id="experience-heading" className={styles.header + ' h1'}>
-                    {experienceSection.title}{' '}
-                    <span className="--extraBold">{experienceSection.titleBold}</span>
-                </h2>
-                <ul className={styles.experience}>
-                    {data.experience.map((item) => (
-                        <li key={`${item.title}-${item.date}`} className={styles.experienceItem}>
-                            <h3 className=" h2 --bold tracking-[0.05em]">{item.title}</h3>
-                            <p className='--bold'>{item.date}</p>
-                            <p className={styles.experienceDesc}>{item.description}</p>
+                <ul className="grid grid-cols-2 gap-5 md:grid-cols-3 xl:grid-cols-6">
+                    {data.stack.map((item) => (
+                        <li
+                            key={item.iconId}
+                            className="relative flex flex-col items-center justify-between rounded border-2 border-[rgb(var(--background-invert))] p-6 text-center"
+                        >
+                            <SvgIcon
+                                className="mb-8 h-14 w-14 text-[rgb(var(--background-invert))]"
+                                width={56}
+                                height={56}
+                                id={item.iconId}
+                            />
+                            <h3 className="mt-auto text-h2 font-semibold text-[rgb(var(--cl-header))]">
+                                {item.name}
+                            </h3>
+                            <p className="absolute bottom-0 text-p3">
+                                {item.description}
+                            </p>
                         </li>
                     ))}
                 </ul>
             </section>
 
-            <section className={'contain'} aria-labelledby="recommendations-heading">
-                <h2 id="recommendations-heading" className={styles.header + ' h1 --extraBold'}>
+            {/* ============================================
+            🗺️ EXPERIENCE — Карта приключений
+            ============================================ */}
+            <section
+                className="contain contain--invert"
+                aria-labelledby="experience-heading"
+            >
+                <h2
+                    id="experience-heading"
+                    className="mb-10 text-h1 font-extrabold text-[rgb(var(--cl-header))]"
+                >
+                    {experienceSection.title}
+                </h2>
+
+                <ul className="grid grid-cols-1 gap-5">
+                    {data.experience.map((item) => (
+                        <li
+                            key={`${item.title}-${item.date}`}
+                            className="grid grid-cols-1 gap-8 rounded-xl border border-[rgb(var(--border-neutral))] p-6 md:grid-cols-[1fr_max-content] even:bg-[rgb(var(--background-middle))]"
+                        >
+                            <h3 className="text-h2 font-semibold tracking-[0.05em] text-[rgb(var(--cl-header))]">
+                                {item.title}
+                            </h3>
+                            <p className="font-semibold text-[rgb(var(--cl-header))]">
+                                {item.date}
+                            </p>
+                            <p className="font-semibold italic text-[rgb(var(--cl-header))] md:col-span-2">
+                                {item.slogan}
+                            </p>
+                            <p className="whitespace-pre-wrap md:col-span-2 md:max-w-[700px]">
+                                {item.description}
+                            </p>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+
+            {/* ============================================
+            📜 RECOMMENDATIONS
+            ============================================ */}
+            <section
+                className="contain"
+                aria-labelledby="recommendations-heading"
+            >
+                <h2
+                    id="recommendations-heading"
+                    className="mb-10 text-h1 font-extrabold text-[rgb(var(--cl-header))]"
+                >
                     {recommendationsSection.title}
                 </h2>
-                <ul className={styles.recommendations}>
-                    {
-                        data.recommendations.map((item, key) => (
-                            <li key={item.docLink} className={styles.recommendation}>
-                                <Popover
-                                    id={key}
-                                    openLabel={recommendationsSection.openLabel(item.name)}
-                                    dialogContent={<Image
-                                        className={`img`}
+
+                <ul className="grid grid-cols-1 gap-10 md:grid-cols-3">
+                    {data.recommendations.map((item, index) => (
+                        <li
+                            key={item.docLink}
+                            className="rounded-2xl border border-[rgb(var(--border-neutral))] bg-[rgb(var(--background))] text-center shadow-[0_6px_8px_rgba(var(--background-invert),0.12)] even:bg-[rgb(var(--background-middle))] even:text-[rgb(var(--cl-p-invert))]"
+                        >
+                            <Popover
+                                id={index}
+                                openLabel={recommendationsSection.openLabel(
+                                    item.name,
+                                )}
+                                dialogContent={
+                                    <Image
+                                        className="h-full w-full object-contain"
                                         src={item.docLink}
-                                        alt={recommendationsSection.imageAlt(item.name)}
+                                        alt={recommendationsSection.imageAlt(
+                                            item.name,
+                                        )}
                                         width={630}
                                         height={630}
-                                    />}
-
-                                    btnContent={(<div className={styles.recommendationContent} ><SvgIcon className={styles.recommendationIcon} width={56} height={56} id={item.iconId} />
-                                        <p className={styles.recommendationDesc}>{item.desc}</p>
-                                        <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
-                                        <p className={styles.recommendationPosition + ' --bold'}>{item.position}</p></div>)}
-                                />
-                            </li>
-                        ))
-                    }
+                                    />
+                                }
+                                btnContent={
+                                    <div className="inline-flex flex-col gap-6 p-6">
+                                        <SvgIcon
+                                            className="mx-auto h-14 w-full"
+                                            width={56}
+                                            height={56}
+                                            id={item.iconId}
+                                        />
+                                        <p className="flex-1">{item.desc}</p>
+                                        <div className="relative flex flex-col items-center">
+                                            <p className="text-h2 font-semibold text-[rgb(var(--cl-header))]">
+                                                {item.name}
+                                            </p>
+                                            <p className="font-semibold text-[rgb(var(--cl-header))]">
+                                                {item.position}
+                                            </p>
+                                            <span className="mt-6 block h-0.5 w-30 bg-[rgb(var(--bg))]" />
+                                        </div>
+                                    </div>
+                                }
+                            />
+                        </li>
+                    ))}
                 </ul>
             </section>
 
-            <section className={'contain'} aria-labelledby="reviews-heading">
-                <h2 id="reviews-heading" className={styles.header + ' h1 --extraBold'}>
+            {/* ============================================
+            🌸 REVIEWS
+            ============================================ */}
+            <section className="contain" aria-labelledby="reviews-heading">
+                <h2
+                    id="reviews-heading"
+                    className="mb-10 text-h1 font-extrabold text-[rgb(var(--cl-header))]"
+                >
                     {reviewsSection.title}
                 </h2>
-                <ul className={styles.recommendations}>
-                    {
-                        data.reviews.map((item) => (
-                            <li key={`${item.name}-${item.position}`} className={[styles.recommendationContent, styles.recommendation].join(' ')}>
-                                <SvgIcon className={styles.recommendationQuote} width={18} height={18} id='quote' decorative />
-                                <blockquote className={styles.recommendationDesc}>
-                                    <p>{item.desc}</p>
-                                </blockquote>
-                                <p className={styles.recommendationName + ' h2 --bold'}>{item.name}</p>
-                                <p className={styles.recommendationPosition + ' --bold'}>{item.position}</p>
-                            </li>
-                        ))
-                    }
+
+                <ul className="grid grid-cols-1 gap-10 md:grid-cols-3">
+                    {data.reviews.map((item) => (
+                        <li
+                            key={`${item.name}-${item.position}`}
+                            className="flex flex-col gap-6 rounded-2xl border border-[rgb(var(--border-neutral))] bg-[rgb(var(--background))] p-6 text-center shadow-[0_6px_8px_rgba(var(--background-invert),0.12)] even:bg-[rgb(var(--background-middle))] even:text-[rgb(var(--cl-p-invert))]"
+                        >
+                            <SvgIcon
+                                className="mx-auto h-14 w-14 rounded-full border border-[rgb(var(--border-neutral))] p-4"
+                                width={56}
+                                height={56}
+                                id="quote"
+                                decorative
+                            />
+                            <blockquote className="flex-1">
+                                <p>{item.desc}</p>
+                            </blockquote>
+                            <div className="relative flex flex-col items-center">
+                                <p className="text-h2 font-semibold text-[rgb(var(--cl-header))]">
+                                    {item.name}
+                                </p>
+                                <p className="font-semibold text-[rgb(var(--cl-header))]">
+                                    {item.position}
+                                </p>
+                                <span className="mt-6 block h-0.5 w-30 bg-[rgb(var(--bg))]" />
+                            </div>
+                        </li>
+                    ))}
                 </ul>
             </section>
 
-
-            <section className={'contain'} aria-labelledby="contact-heading">
-                <h2 id="contact-heading" className={`h1 ${styles.header}`}>
-                    <span className="--extraBold">{contactSection.titleBold1}</span>{' '}
-                    {contactSection.titleMiddle}{' '}
-                    <span className="--extraBold">{contactSection.titleBold2}</span>{' '}
+            {/* ============================================
+            🪞 CONTACT
+            ============================================ */}
+            <section className="contain" aria-labelledby="contact-heading">
+                <h2
+                    id="contact-heading"
+                    className="mb-4 text-h1 font-medium text-[rgb(var(--cl-header))]"
+                >
+                    <span className="font-extrabold">
+                        {contactSection.titleBold1}
+                    </span>
+                    <br />
+                    {contactSection.titleMiddle}
+                    <br />
+                    <span className="font-extrabold">
+                        {contactSection.titleBold2}
+                    </span>{" "}
                     <a
                         href={contactSection.telegramHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="--outside --extraBold"
+                        className="font-extrabold"
                     >
                         {contactSection.telegramHandle}
-                    </a>.
+                    </a>
+                    .
                 </h2>
+                <p className="mb-8">{contactSection.desk}</p>
                 <ContactButton />
             </section>
 
-
-            <div className="contain text-center  ">
-                <Link href={fastSitesLink.href} className="--extraBold" style={{ color: 'rgb(55, 25, 25)' }}>
+            {/* ============================================
+            🧭 FAST SITES LINK
+            ============================================ */}
+            <div className="contain text-center">
+                <Link
+                    href={fastSitesLink.href}
+                    className="font-extrabold text-[rgb(var(--cl-header))]"
+                >
                     {fastSitesLink.text}
                 </Link>
             </div>

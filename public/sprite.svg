@@ -38,6 +38,68 @@
     <path d="M126.107 32.274L47.714 206.693l29.285-.498 15.739-39.347h70.325l17.233 39.845 27.99.498-82.179-174.917zm.2 55.882l26.496 55.383h-49.806l23.31-55.383z" fill="#FFF"/>
 </symbol>
 
+<symbol id="ipr" viewBox="0 0 56 56" fill="none">
+  <path d="M0 56V0H56V56H0Z" fill="currentColor"/>
+  <!-- Человек в центре (развитие личности) -->
+  <circle cx="28" cy="20" r="6" stroke="white" stroke-width="2.5" fill="none"/>
+  <path d="M16 44C16 36 22 30 28 30C34 30 40 36 40 44" stroke="white" stroke-width="2.5" fill="none"/>
+  <!-- Дорожка развития (лестница вверх) -->
+  <path d="M8 48L16 40L24 44L32 36L40 42L48 32" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Точки на дорожке (этапы) -->
+  <circle cx="16" cy="40" r="2" fill="white"/>
+  <circle cx="24" cy="44" r="2" fill="white"/>
+  <circle cx="32" cy="36" r="2" fill="white"/>
+  <circle cx="40" cy="42" r="2" fill="white"/>
+  <circle cx="48" cy="32" r="2" fill="white"/>
+  <!-- Звездочка (цель/вершина) -->
+  <path d="M52 24L54 28L58 28L55 31L56 36L52 33L48 36L49 31L46 28L50 28L52 24Z" stroke="white" stroke-width="2" fill="none"/>
+</symbol>
+
+<symbol id="matrix" viewBox="0 0 56 56" fill="none">
+  <path d="M0 56V0H56V56H0Z" fill="currentColor"/>
+  <!-- Сетка матрицы -->
+  <rect x="6" y="6" width="44" height="44" rx="2" stroke="white" stroke-width="2" fill="none"/>
+  <!-- Горизонтальные линии -->
+  <line x1="6" y1="18" x2="50" y2="18" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  <line x1="6" y1="30" x2="50" y2="30" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  <line x1="6" y1="42" x2="50" y2="42" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  <!-- Вертикальные линии -->
+  <line x1="18" y1="6" x2="18" y2="50" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  <line x1="30" y1="6" x2="30" y2="50" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  <line x1="42" y1="6" x2="42" y2="50" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  <!-- Заполненные ячейки (компетенции) -->
+  <rect x="8" y="8" width="8" height="8" rx="1" fill="white" opacity="0.3"/>
+  <rect x="20" y="8" width="8" height="8" rx="1" fill="white" opacity="0.5"/>
+  <rect x="44" y="8" width="8" height="8" rx="1" fill="white" opacity="0.1"/>
+  <rect x="8" y="20" width="8" height="8" rx="1" fill="white" opacity="0.6"/>
+  <rect x="32" y="20" width="8" height="8" rx="1" fill="white" opacity="0.4"/>
+  <rect x="20" y="32" width="8" height="8" rx="1" fill="white" opacity="0.7"/>
+  <rect x="44" y="32" width="8" height="8" rx="1" fill="white" opacity="0.2"/>
+  <rect x="32" y="44" width="8" height="8" rx="1" fill="white" opacity="0.5"/>
+  <!-- Легенда (ярлык в углу) -->
+  <path d="M48 48L52 52M48 52L52 48" stroke="white" stroke-width="2" opacity="0.5"/>
+</symbol>
+
+<symbol id="vector" viewBox="0 0 56 56" fill="none">
+  <path d="M0 56V0H56V56H0Z" fill="currentColor"/>
+  <!-- Основная стрелка траектории -->
+  <path d="M6 44L20 32L32 40L44 24L50 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Острие стрелки -->
+  <path d="M50 12L46 16L42 12L50 12Z" fill="white"/>
+  <!-- Точки на траектории (ключевые компетенции) -->
+  <circle cx="20" cy="32" r="3" fill="white"/>
+  <circle cx="32" cy="40" r="3" fill="white"/>
+  <circle cx="44" cy="24" r="3" fill="white"/>
+  <!-- Маленькие точки (промежуточные этапы) -->
+  <circle cx="12" cy="40" r="1.5" fill="white" opacity="0.4"/>
+  <circle cx="26" cy="36" r="1.5" fill="white" opacity="0.4"/>
+  <circle cx="38" cy="32" r="1.5" fill="white" opacity="0.4"/>
+  <!-- Вертикальные линии роста -->
+  <line x1="20" y1="36" x2="20" y2="44" stroke="white" stroke-width="1" opacity="0.3"/>
+  <line x1="32" y1="44" x2="32" y2="50" stroke="white" stroke-width="1" opacity="0.3"/>
+  <line x1="44" y1="28" x2="44" y2="36" stroke="white" stroke-width="1" opacity="0.3"/>
+</symbol>
+
 <symbol id="veeamSoftware" viewBox="0 0 100 30" fill="none">
     <path d="M8.46718 0.028021C7.57553 0.028021 6.7169 0.382384 6.08744 1.01125L0.98572 6.10009C0.35526 6.72896 0 7.58442 0 8.47382V30.0001L91.5869 29.9462C92.4785 29.9462 93.3371 29.5918 93.9666 28.9629L99.0113 23.931C99.6417 23.3021 99.997 22.4467 99.997 21.5573L100 0.0270233L8.46718 0.028021Z" fill="currentColor"></path>
     <path opacity="0.2" d="M0 10.6598L0.0100075 29.992L34.1749 29.972C34.1749 29.972 37.9727 30.1457 40.9259 29.4939C46.3528 28.2971 49.5842 26.0032 53.6241 21.9744C60.4391 15.1767 75.7013 0 75.7013 0L42.2869 0.00399348L19.2681 22.8698C19.2681 22.8698 17.797 24.5099 15.8085 24.5109C14.3215 24.5119 13.4708 23.912 12.362 22.8898C12.0378 22.5903 0 10.6688 0 10.6598Z" fill="white"></path>

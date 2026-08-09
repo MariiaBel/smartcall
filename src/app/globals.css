@@ -2,16 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { 
-  --background-invert: 35 15 15;
-  --background-middle: 50 30 30;
-  --background-neutral: 113 113 122;
-  --border-neutral: 125 115 115;
+:root {
+  /* 🍎 Основные цвета — чистые и нежные */
+  --background-invert: 25 20 22;    /* тёмный, но мягкий */
+  --background-middle: 45 35 38;    /* тёплый тёмный */
+  --background-neutral: 180 170 165; /* бежево-розовый */
+  --border-neutral: 190 180 175;    /* мягкий бежевый */
 
-  --cl-p: 113 113 122;
-  --cl-p-invert: 212 212 216;
-  --cl-header: 55 25 25;
+  --cl-p: 160 150 145;             /* основной текст — мягкий тёплый */
+  --cl-p-invert: 245 240 238;      /* светлый текст на тёмном */
+  --cl-header: 45 30 35;           /* глубокий бордово-коричневый */
 
+  /* Типография */
   --h3: 36px;
   --h3-lh: 44px;
   --h4: 32px;
@@ -28,33 +30,40 @@
   --p3: 12px;
   --p3-lh: 16px;
 
-  /* Tailwind цвета */
-  --background: 255 255 255;
-  --foreground: 113 113 122;
-  --primary: 55 25 25;
-  --primary-foreground: 255 255 255;
-  --secondary: 50 30 30;
-  --secondary-foreground: 255 255 255;
-  --muted: 113 113 122;
-  --muted-foreground: 212 212 216;
-  --accent: 35 15 15;
-  --accent-foreground: 255 255 255;
-  --border: 125 115 115;
-  --input: 125 115 115;
-  --ring: 55 25 25;
-  --radius: 0.5rem;
+  /* 🎨 Tailwind цвета (обновлённые) */
+  --background: 255 253 252;        /* тёплый белый */
+  --foreground: 70 55 60;          /* мягкий тёмный текст */
+
+  /* Основной акцент — бордовое яблоко */
+  --primary: 45 30 35;             /* глубокий бордово-коричневый */
+  --primary-foreground: 255 253 252;
+
+  /* Вторичный — нежный розовый */
+  --secondary: 235 220 215;        /* очень светлый розово-бежевый */
+  --secondary-foreground: 45 30 35;
+
+  /* Muted — мягкий бежевый */
+  --muted: 245 240 238;            /* почти белый с тёплым оттенком */
+  --muted-foreground: 160 150 145;
+
+  /* Accent — кораллово-розовый для акцентов */
+  --accent: 210 170 160;           /* нежный коралловый */
+  --accent-foreground: 45 30 35;
+
+  /* Границы и поля */
+  --border: 200 185 180;           /* мягкий розово-бежевый */
+  --input: 200 185 180;
+  --ring: 45 30 35;
+
+  --radius: 0.75rem;               /* чуть более мягкие углы */
 }
 
 @layer base {
-  /* * {
-    @apply border-border;
-  } */
-  
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "ss01" on, "ss02" on;
   }
 }
-
 
 html,
 body {
@@ -69,18 +78,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-} */
-
-/* button {
-  border: 0;
-  background: none;
-  color: inherit;
-} */
 
 a {
   color: inherit;
@@ -110,10 +107,10 @@ li {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* object-position: center; */
   color: rgb(var(--background-invert));
 }
 
+/* 🍎 Контейнеры */
 .contain {
   margin-left: auto;
   margin-right: auto;
@@ -128,6 +125,7 @@ li {
   background: rgb(var(--background-invert));
 }
 
+/* 🍎 Скрытые элементы */
 .text-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -164,6 +162,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/* 🍎 Типография */
 .h1 {
   font-size: var(--h1);
   line-height: var(--h1-lh);
@@ -193,7 +192,34 @@ button:focus-visible {
   color: rgb(var(--background));
 }
 
-/* DESKTOP */
+/* 🍎 Кнопки и акценты (можно добавить) */
+.button-primary {
+  background: rgb(var(--primary));
+  color: rgb(var(--primary-foreground));
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.button-primary:hover {
+  background: rgb(var(--accent));
+  color: rgb(var(--accent-foreground));
+}
+
+.button-ghost {
+  background: transparent;
+  color: rgb(var(--cl-header));
+  padding: 12px 28px;
+  border: 1px solid rgb(var(--border));
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.button-ghost:hover {
+  background: rgb(var(--secondary));
+}
+
+/* 🍎 Десктопные апгрейды */
 @media (min-width: 1280px) {
   .h1 {
     --h1: 48px;
@@ -203,3 +229,64 @@ button:focus-visible {
     padding: 60px 32px;
   }
 }
+
+/* ============================================
+   🍎 КАСТОМНЫЕ УТИЛИТЫ ДЛЯ БЕЛОСНЕЖКИ
+   ============================================ */
+
+   @layer utilities {
+    /* Текст с обводкой (как --outside) */
+    .text-stroke-cl-header {
+      -webkit-text-stroke: 1.4px rgb(var(--cl-header));
+      paint-order: stroke fill;
+    }
+  
+    /* Цвета для фона */
+    .bg-invert {
+      background-color: rgb(var(--background-invert));
+    }
+    .bg-middle {
+      background-color: rgb(var(--background-middle));
+    }
+    .bg-neutral {
+      background-color: rgb(var(--background-neutral));
+    }
+  
+    /* Цвета для текста */
+    .text-cl-header {
+      color: rgb(var(--cl-header));
+    }
+    .text-cl-p {
+      color: rgb(var(--cl-p));
+    }
+    .text-cl-p-invert {
+      color: rgb(var(--cl-p-invert));
+    }
+  
+    /* Размеры шрифтов (fallback для Tailwind) */
+    .text-h1 {
+      font-size: var(--h1);
+      line-height: var(--h1-lh);
+    }
+    .text-h2 {
+      font-size: var(--h2);
+      line-height: var(--h2-lh);
+    }
+    .text-p2 {
+      font-size: var(--p2);
+      line-height: var(--p2-lh);
+    }
+    .text-p3 {
+      font-size: var(--p3);
+      line-height: var(--p3-lh);
+    }
+  
+    /* Контейнер contain--invert */
+    .contain--invert {
+      color: rgb(var(--cl-p-invert));
+      background-color: rgb(var(--background-invert));
+    }
+    .contain--invert .text-cl-header {
+      color: rgb(var(--background));
+    }
+  }

@@ -1,5 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import ContactButton from "@/app/ui/button/contact-button";
+import SvgIcon from "@/app/ui/svgIcon/svgIcon";
+import Button from "@/app/ui/button/button";
 import {
     backLink,
     benefits,
@@ -18,10 +22,6 @@ import {
     whyMeItems,
     whyMeSection,
 } from "@/app/constants/fast-sites";
-import Image from "next/image";
-import ContactButton from "@/app/ui/button/contact-button";
-import SvgIcon from "@/app/ui/svgIcon/svgIcon";
-import Button from "@/app/ui/button/button";
 
 export const metadata: Metadata = {
     title: fastSitesMetadata.title,
@@ -30,80 +30,89 @@ export const metadata: Metadata = {
 
 export default function FastSitesPage() {
     return (
-        <div className="">
-            {/* Hero Section */}
-            <section className=" contain grid grid-cols-1 md:grid-cols-2">
-                <div className="">
-                    <h1 className="h1 mb-10 ">
-                        {hero.title}
-                        <br />
-                        <span className="--extraBold">{hero.titleBold}</span>
-                    </h1>
+        <div>
+            {/* ============================================
+            🧙‍♀️ WELCOME — Hero
+            ============================================ */}
+            <section
+                className="contain grid grid-cols-1 gap-8 md:grid-cols-2 md:grid-rows-[min-content_min-content_min-content] md:items-start"
+                aria-label={hero.title}
+            >
+                <Image
+                    className="mx-auto max-h-[400px] w-full max-w-[630px] object-contain md:col-start-2 md:row-span-3 md:mx-0"
+                    src="/fast-siites.svg"
+                    alt={hero.imageAlt}
+                    width={630}
+                    height={630}
+                    priority
+                />
 
-                    <p
-                        className="text-lg mb-4 max-w-3xl"
-                        style={{ color: "rgb(113, 113, 122)" }}
-                    >
-                        {hero.introBeforeLink}{" "}
-                        <Link
-                            href="/"
-                            className="--extraBold"
-                            style={{ color: "rgb(55, 25, 25)" }}
-                        >
-                            {hero.introLinkText}
-                        </Link>{" "}
-                        {hero.introAfterLink}
+                <hgroup className="md:col-start-1 md:row-start-1">
+                    {/* Приветствие — лёгкое, как утренний свет */}
+                    <span className="block text-sm font-light uppercase tracking-[0.2em] text-[rgb(var(--cl-p))]">
+                        {hero.greeting}
+                    </span>
+
+                    {/* Основной заголовок — строгий, но нежный */}
+                    <h2 className="mt-2 text-3xl font-light leading-[1.2] tracking-wide text-[rgb(var(--cl-header))] sm:text-4xl md:text-5xl">
+                        {hero.title}
+                    </h2>
+
+                    {/* Подзаголовок — мягкий, уточняющий */}
+                    <p className="mt-3 max-w-2xl text-base font-light leading-relaxed text-[rgb(var(--cl-p))] md:text-lg">
+                        {hero.subtitle}
                     </p>
-                    {hero.description &&
-                        hero.description.map((item, idx) => (
-                            <p
-                                key={idx}
-                                className="mb-8 max-w-3xl"
-                                style={{ color: "rgb(113, 113, 122)" }}
-                            >
-                                {item}
-                            </p>
-                        ))}
-                    <div className="flex gap-4  flex-wrap">
-                        <Button href="https://t.me/MariiaBel" external>
-                            {hero.primaryButton}
-                        </Button>
-                        <Button href="#pricing" mode="--light">
-                            {hero.secondaryButton}
-                        </Button>
-                    </div>
+                </hgroup>
+
+                <div className="md:col-start-1">
+                    {hero.paragraphs.map((paragraph) => (
+                        <p
+                            key={paragraph}
+                            className="mb-3 last:mb-0"
+                            dangerouslySetInnerHTML={{ __html: paragraph }}
+                        />
+                    ))}
                 </div>
-                <div className="flex justify-center  mb-8 order-[-1] md:order-1">
-                    <Image
-                        src="/fast-siites.svg"
-                        alt={hero.imageAlt}
-                        width={200}
-                        height={200}
-                        className="img object-top max-w-[300px] "
-                    />
+
+                <div className="flex flex-wrap items-center justify-start gap-6 md:col-start-1">
+                    <Button
+                        href="https://t.me/MariiaBel"
+                        external
+                        className="inline-flex items-center gap-2"
+                    >
+                        {hero.primaryButton}
+                    </Button>
+                    <Button
+                        href="#pricing"
+                        mode="--light"
+                        className="inline-flex items-center gap-2"
+                    >
+                        {hero.secondaryButton}
+                    </Button>
                 </div>
             </section>
 
-            {/* Benefits Section */}
+            {/* ============================================
+            🎁 BENEFITS — Что входит
+            ============================================ */}
             <section className="contain">
-                <h2 className="h1 mb-12">
+                <h2 className="mb-10 text-h1 font-light text-[rgb(var(--cl-header))]">
                     {benefitsSection.title}{" "}
-                    <span className="--extraBold">
+                    <span className="font-medium text-[rgb(var(--primary))]">
                         {benefitsSection.titleBold}
                     </span>
                 </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {benefits.map((benefit, idx) => (
                         <div
                             key={idx}
-                            className="border rounded-lg p-6 transition-shadow hover:shadow-lg"
-                            style={{
-                                borderColor: "rgb(125, 115, 115)",
-                                backgroundColor: "rgb(255, 255, 255)",
-                            }}
+                            className="rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--background))] p-6 transition-shadow hover:shadow-md"
                         >
-                            <h3 className="h2 mb-3">{benefit.title}</h3>
-                            <p style={{ color: "rgb(113, 113, 122)" }}>
+                            <h3 className="mb-3 text-h2 font-medium text-[rgb(var(--cl-header))]">
+                                {benefit.title}
+                            </h3>
+                            <p className="text-[rgb(var(--cl-p))]">
                                 {benefit.description}
                             </p>
                         </div>
@@ -111,95 +120,96 @@ export default function FastSitesPage() {
                 </div>
             </section>
 
-            {/* Project Types Section */}
+            {/* ============================================
+            🏗️ PROJECT TYPES — Какие проекты
+            ============================================ */}
             <section className="contain contain--invert">
-                <h2 className="h1 mb-10">
+                <h2 className="mb-10 text-h1 font-light text-[rgb(var(--cl-header))]">
                     {projectTypesSection.title}{" "}
-                    <span className="--extraBold">
+                    <span className="font-medium text-[rgb(var(--accent))]">
                         {projectTypesSection.titleBold}
                     </span>
                 </h2>
-                <div className="grid md:grid-cols-2 gap-4 ">
+
+                <div className="grid gap-3 md:grid-cols-2">
                     {projectTypes.map((project, idx) => (
                         <div
                             key={idx}
-                            className="flex items-center gap-3 rounded-lg p-4 border"
-                            style={{
-                                backgroundColor: "rgb(50, 30, 30)",
-                                borderColor: "rgb(125, 115, 115)",
-                                color: "rgb(212, 212, 216)",
-                            }}
+                            className="flex items-center gap-3 rounded-lg border border-[rgb(var(--border-neutral))] bg-[rgb(var(--background-middle))] p-4 text-[rgb(var(--cl-p-invert))]"
                         >
-                            <span style={{ color: "rgb(212, 212, 216)" }}>
-                                ✓
-                            </span>
+                            <span className="text-[rgb(var(--accent))]">✓</span>
                             <span>{project}</span>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* Comparison Section */}
+            {/* ============================================
+            🍎 COMPARISON — Почему решение эффективнее
+            ============================================ */}
             <section className="contain">
-                <h2 className="h1 mb-10">
+                <h2 className="mb-6 text-h1 font-light text-[rgb(var(--cl-header))]">
                     {comparisonSection.title}{" "}
-                    <span className="--extraBold">
+                    <span className="font-medium text-[rgb(var(--primary))]">
                         {comparisonSection.titleBold}
                     </span>{" "}
                     {comparisonSection.titleAfterBold}
                 </h2>
 
-                <p className=" rounded-lg p-6 relative border border-border mt-8 text-xl ">
-                    <span className="--extraBold">
+                <div className="relative mt-8 rounded-xl border border-[rgb(var(--border))] p-6 text-xl">
+                    <span className="font-medium text-[rgb(var(--primary))]">
                         {comparisonSection.highlight}
-                    </span>{" "}
+                    </span>
                     <br />
                     {comparisonSection.text}
-                </p>
+                </div>
             </section>
 
-            {/* Expert Comparison Section */}
+            {/* ============================================
+            👩‍💻 EXPERT COMPARISON — Почему эксперт
+            ============================================ */}
             <section className="contain">
-                <h2 className="h1 mb-10">
+                <h2 className="mb-6 text-h1 font-light text-[rgb(var(--cl-header))]">
                     {expertComparisonSection.title}{" "}
-                    <span className="--extraBold">
+                    <span className="font-medium text-[rgb(var(--primary))]">
                         {expertComparisonSection.titleBold}
                     </span>{" "}
                     {expertComparisonSection.titleAfterBold}
                 </h2>
 
-                <p className=" rounded-lg p-6 relative border border-border mt-8 text-xl ">
-                    <span className="--extraBold">
+                <div className="relative mt-8 rounded-xl border border-[rgb(var(--border))] p-6 text-xl">
+                    <span className="font-medium text-[rgb(var(--primary))]">
                         {expertComparisonSection.highlight}
-                    </span>{" "}
+                    </span>
                     <br />
                     {expertComparisonSection.text}
-                </p>
+                </div>
             </section>
 
-            {/* Work Steps */}
+            {/* ============================================
+            🗺️ STEPS — Как строим
+            ============================================ */}
             <section className="contain contain--invert">
-                <h2 className="h1 mb-10">
+                <h2 className="mb-10 text-h1 font-light text-[rgb(var(--cl-header))]">
                     {stepsSection.title}{" "}
-                    <span className="--extraBold">
+                    <span className="font-medium text-[rgb(var(--accent))]">
                         {stepsSection.titleBold}
                     </span>
                 </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                     {steps.map((step) => (
                         <div
                             key={step.number}
-                            className="rounded-lg p-6 border bg-secondary"
-                            style={{
-                                borderColor: "rgb(125, 115, 115)",
-                                color: "rgb(212, 212, 216)",
-                            }}
+                            className="rounded-xl border border-[rgb(var(--border-neutral))] bg-[rgb(var(--background-middle))] p-6 text-[rgb(var(--cl-p-invert))]"
                         >
-                            <div className=" font-bold mb-2">{step.number}</div>
-                            <h3 className="text-xl font-bold mb-3 tracking-[0.05em]">
+                            <div className="mb-2 text-2xl font-medium text-[rgb(var(--accent))]">
+                                {step.number}
+                            </div>
+                            <h3 className="mb-3 text-xl font-medium tracking-[0.05em]">
                                 {step.title}
                             </h3>
-                            <p className="text-muted-foreground">
+                            <p className="text-[rgb(var(--cl-p-invert))] opacity-80">
                                 {step.description}
                             </p>
                         </div>
@@ -207,46 +217,41 @@ export default function FastSitesPage() {
                 </div>
             </section>
 
-            {/* Pricing Section */}
+            {/* ============================================
+            💰 PRICING — Стоимость
+            ============================================ */}
             <section id="pricing" className="contain">
-                <h2 className="h1 mb-6">
+                <h2 className="mb-2 text-h1 font-light text-[rgb(var(--cl-header))]">
                     {pricingSection.title}{" "}
-                    <span className="--extraBold">
+                    <span className="font-medium text-[rgb(var(--primary))]">
                         {pricingSection.titleBold}
                     </span>
                 </h2>
-                <p className="mb-10">{pricingSection.subtitle}</p>
+                <p className="mb-10 text-[rgb(var(--cl-p))]">
+                    {pricingSection.subtitle}
+                </p>
 
-                <div className="grid md:grid-cols-2 gap-6 ">
+                <div className="grid gap-6 md:grid-cols-2">
                     {pricingPlans.map((plan) => (
                         <div
                             key={plan.title}
-                            className="rounded-lg p-6 relative border border-border"
+                            className="relative rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--background))] p-6"
                         >
                             {plan.badge && (
-                                <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-sm bg-primary text-background">
+                                <div className="absolute right-4 top-4 rounded-full bg-[rgb(var(--primary))] px-3 py-1 text-sm text-[rgb(var(--primary-foreground))]">
                                     {plan.badge}
                                 </div>
                             )}
-                            <h3 className="text-xl font-bold text-primary mb-3 tracking-[0.05em]">
+                            <h3 className="mb-2 text-xl font-medium text-[rgb(var(--cl-header))] tracking-[0.05em]">
                                 {plan.title}
                             </h3>
-                            <p
-                                className="mb-4"
-                                style={{ color: "rgb(113, 113, 122)" }}
-                            >
+                            <p className="mb-4 text-[rgb(var(--cl-p))]">
                                 {plan.subtitle}
                             </p>
                             {plan.rate && (
-                                <div
-                                    className="text-3xl font-bold mb-4"
-                                    style={{ color: "rgb(55, 25, 25)" }}
-                                >
+                                <div className="mb-4 text-3xl font-bold text-[rgb(var(--cl-header))]">
                                     {plan.rate}{" "}
-                                    <span
-                                        className="text-lg font-normal"
-                                        style={{ color: "rgb(113, 113, 122)" }}
-                                    >
+                                    <span className="text-lg font-normal text-[rgb(var(--cl-p))]">
                                         {plan.rateUnit}
                                     </span>
                                 </div>
@@ -257,7 +262,9 @@ export default function FastSitesPage() {
                                         key={feature}
                                         className="flex items-start gap-2"
                                     >
-                                        <span>✓</span>
+                                        <span className="text-[rgb(var(--accent))]">
+                                            ✓
+                                        </span>
                                         <span>{feature}</span>
                                     </li>
                                 ))}
@@ -267,41 +274,59 @@ export default function FastSitesPage() {
                 </div>
             </section>
 
-            {/* Why Me Section */}
+            {/* ============================================
+            🧙‍♀️ WHY ME — Почему я
+            ============================================ */}
             <section className="contain">
-                <h2 className="h1 mb-10">
+                <h2 className="mb-10 text-h1 font-light text-[rgb(var(--cl-header))]">
                     {whyMeSection.title}{" "}
-                    <span className={whyMeSection.titleBoldClassName}>
+                    <span className="font-medium text-[rgb(var(--primary))]">
                         {whyMeSection.titleBold}
                     </span>
                 </h2>
-                <div className="grid lg:grid-cols-4 gap-6 ">
+
+                <div className="grid gap-6 lg:grid-cols-4">
                     {whyMeItems.map((item) => (
                         <div
                             key={item.title}
-                            className={`flex flex-col rounded-lg p-6 border border-border${item.variant === "primary" ? " bg-primary text-muted-foreground" : ""}`}
+                            className={`flex flex-col rounded-xl border border-[rgb(var(--border))] p-6 ${
+                                item.variant === "primary"
+                                    ? "bg-[rgb(var(--primary))] text-[rgb(var(--primary-foreground))]"
+                                    : "bg-[rgb(var(--background))]"
+                            }`}
                         >
                             <h3
-                                className={`text-xl font-bold mb-3 tracking-[0.05em]${item.variant === "primary" ? " text-background" : " text-primary"}`}
+                                className={`mb-3 text-xl font-medium tracking-[0.05em] ${
+                                    item.variant === "primary"
+                                        ? "text-[rgb(var(--primary-foreground))]"
+                                        : "text-[rgb(var(--cl-header))]"
+                                }`}
                             >
                                 {item.title}
                             </h3>
                             <p
-                                className={`text-base leading-relaxed${item.link ? " mb-3" : " mb-6"}`}
+                                className={`mb-6 flex-1 text-base leading-relaxed ${
+                                    item.variant === "primary"
+                                        ? "text-[rgb(var(--primary-foreground))] opacity-90"
+                                        : "text-[rgb(var(--cl-p))]"
+                                }`}
                             >
                                 {item.description}
                             </p>
                             {item.link && (
                                 <Link
                                     href={item.link.href}
-                                    className="--extraBold mb-6"
-                                    style={{ color: "rgb(55, 25, 25)" }}
+                                    className="mb-4 font-medium text-[rgb(var(--cl-header))] hover:underline"
                                 >
                                     {item.link.text}
                                 </Link>
                             )}
                             <SvgIcon
-                                className={`${item.variant === "primary" ? "text-background" : "text-primary"} ml-auto mt-auto`}
+                                className={`ml-auto mt-auto ${
+                                    item.variant === "primary"
+                                        ? "text-[rgb(var(--primary-foreground))]"
+                                        : "text-[rgb(var(--cl-header))]"
+                                }`}
                                 width={56}
                                 height={56}
                                 id={item.iconId}
@@ -311,29 +336,29 @@ export default function FastSitesPage() {
                 </div>
             </section>
 
-            {/* CTA Section */}
+            {/* ============================================
+            🪞 CTA — Призыв
+            ============================================ */}
             <section className="contain relative overflow-hidden">
-                <h2 className="h1 mb-10">
+                <h2 className="mb-4 text-h1 font-light text-[rgb(var(--cl-header))]">
                     {ctaSection.title}{" "}
-                    <span className="--extraBold">{ctaSection.titleBold}</span>
+                    <span className="font-medium text-[rgb(var(--primary))]">
+                        {ctaSection.titleBold}
+                    </span>
                 </h2>
-
-                <p
-                    className="text-lg mb-6 max-w-3xl "
-                    style={{ color: "rgb(113, 113, 122)" }}
-                >
+                <p className="mb-6 max-w-3xl text-lg text-[rgb(var(--cl-p))]">
                     {ctaSection.description}
                 </p>
-
                 <ContactButton />
             </section>
 
-            {/* Back to Home */}
-            <div className="contain text-center  ">
+            {/* ============================================
+            🔙 BACK LINK
+            ============================================ */}
+            <div className="contain text-center">
                 <Link
                     href={backLink.href}
-                    className="--extraBold"
-                    style={{ color: "rgb(55, 25, 25)" }}
+                    className="font-medium text-[rgb(var(--cl-header))] hover:underline"
                 >
                     {backLink.text}
                 </Link>
